@@ -1,0 +1,120 @@
+{
+ "_comments": "[{\"comment\": \"Action Failed<br><br>Option <strong>Leave Application</strong> for field <strong>table_otba</stro...\", \"by\": \"Administrator\", \"name\": \"855gol3mas\"}, {\"comment\": \"Action Failed<br><br>Option <strong>Leave Application</strong> for field <strong>table_otba</stro...\", \"by\": \"Administrator\", \"name\": \"fnuua50nvv\"}, {\"comment\": \"Action Failed<br><br>Option <strong>Leave Application</strong> for field <strong>table_otba</stro...\", \"by\": \"Administrator\", \"name\": \"fvb6ss6l9q\"}]",
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "LA.###",
+ "creation": "2025-06-19 12:10:13.795133",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "employee",
+  "leave_type",
+  "from_date",
+  "to__date",
+  "total_days",
+  "mail",
+  "column_break_zzvi",
+  "reason",
+  "approver",
+  "status"
+ ],
+ "fields": [
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "From Date"
+  },
+  {
+   "fieldname": "leave_type",
+   "fieldtype": "Select",
+   "label": "Leave Type",
+   "options": "Casual Leave\nSick leave\nEarned leave"
+  },
+  {
+   "fieldname": "column_break_zzvi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "to__date",
+   "fieldtype": "Date",
+   "label": "To  Date"
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Employee",
+   "options": "Users List",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "approver",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Approver",
+   "options": "Users List",
+   "reqd": 1
+  },
+  {
+   "default": "Pending Approval",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Pending Approval\nApproved\nRejected"
+  },
+  {
+   "fieldname": "reason",
+   "fieldtype": "Text",
+   "label": "Reason"
+  },
+  {
+   "fieldname": "total_days",
+   "fieldtype": "Int",
+   "label": "Total Days"
+  },
+  {
+   "fetch_from": "approver.email",
+   "fieldname": "mail",
+   "fieldtype": "Data",
+   "label": "Gmail"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-07-01 18:31:48.893097",
+ "modified_by": "Administrator",
+ "module": "leave management",
+ "name": "leave application",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

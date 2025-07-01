@@ -1,0 +1,88 @@
+{
+ "add_total_row": 1,
+ "add_translate_data": 0,
+ "columns": [
+  {
+   "fieldname": "select ",
+   "fieldtype": "Select",
+   "label": "Status",
+   "width": 0
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "label": "Employee",
+   "width": 0
+  },
+  {
+   "fieldname": "leave type",
+   "fieldtype": "Link",
+   "label": "Leave Type",
+   "width": 0
+  },
+  {
+   "fieldname": "from date",
+   "fieldtype": "Date",
+   "label": "From Date",
+   "width": 0
+  },
+  {
+   "fieldname": "to date",
+   "fieldtype": "Date",
+   "label": "To date",
+   "width": 0
+  },
+  {
+   "fieldname": "total days",
+   "fieldtype": "Float",
+   "label": "Total Days",
+   "width": 0
+  },
+  {
+   "fieldname": "leave balance",
+   "fieldtype": "Float",
+   "label": "Leave Balance",
+   "width": 0
+  }
+ ],
+ "creation": "2025-06-30 11:24:24.160255",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "label": "Employee",
+   "mandatory": 0,
+   "wildcard_filter": 0
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "mandatory": 0,
+   "options": "Pending Approved\nRejected",
+   "wildcard_filter": 0
+  }
+ ],
+ "idx": 0,
+ "is_standard": "Yes",
+ "json": "{}",
+ "letterhead": null,
+ "modified": "2025-07-01 15:47:35.892170",
+ "modified_by": "Administrator",
+ "module": "leave management",
+ "name": "leave Application report",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "ref_doctype": "leave application",
+ "report_name": "leave Application report",
+ "report_type": "Report Builder",
+ "roles": [
+  {
+   "role": "System Manager"
+  }
+ ],
+ "timeout": 0
+}
