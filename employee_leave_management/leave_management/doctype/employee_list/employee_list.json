@@ -1,14 +1,14 @@
 {
  "actions": [],
- "autoname": "UL.###",
+ "autoname": "EP.###",
  "creation": "2025-07-01 17:35:19.906252",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "name1",
-  "role",
-  "column_break_rqbp",
   "email",
+  "column_break_rqbp",
+  "manager",
   "joining_date"
  ],
  "fields": [
@@ -17,14 +17,6 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Name",
-   "reqd": 1
-  },
-  {
-   "fieldname": "role",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "label": "Role",
-   "options": "Employee\nManager",
    "reqd": 1
   },
   {
@@ -44,15 +36,22 @@
    "in_list_view": 1,
    "label": "Joining date",
    "reqd": 1
+  },
+  {
+   "fieldname": "manager",
+   "fieldtype": "Link",
+   "label": "Manager",
+   "options": "Managers List",
+   "reqd": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-07-01 18:02:05.620860",
+ "modified": "2025-07-02 12:18:09.589684",
  "modified_by": "Administrator",
  "module": "leave management",
- "name": "Users List",
+ "name": "Employee List",
  "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [

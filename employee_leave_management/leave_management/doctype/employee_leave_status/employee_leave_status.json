@@ -1,0 +1,88 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:employee",
+ "creation": "2025-07-02 12:20:05.357121",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "employee",
+  "leave_allocated",
+  "leave_fraction_guide",
+  "column_break_ewvn",
+  "leaves_used",
+  "leave_remaining"
+ ],
+ "fields": [
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Employee",
+   "options": "Employee List",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "column_break_ewvn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "leave_allocated",
+   "fieldtype": "Float",
+   "label": "Leave Allocated"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "0",
+   "fieldname": "leaves_used",
+   "fieldtype": "Float",
+   "label": "Leaves Used",
+   "precision": "1",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "leave_remaining",
+   "fieldtype": "Float",
+   "label": "Leave Remaining",
+   "precision": "1",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "leave_fraction_guide",
+   "fieldtype": "HTML",
+   "label": "Leave Fraction Guide",
+   "options": "<style>\n  .row-2-hours {\n    background-color: #fff9db; /* light yellow */\n    font-weight: bold;\n    color: #b58900;\n  }\n\n  .row-half-day {\n    background-color: #e0f7fa; /* light cyan */\n    font-weight: bold;\n    color: #006064;\n  }\n\n  .row-1-full-day {\n    background-color: #e8f5e9; /* light green */\n    font-weight: bold;\n    color: #2e7d32;\n  }\n\n  table.leave-guide {\n    width: 100%;\n    border-collapse: collapse;\n    margin-top: 10px;\n  }\n\n  table.leave-guide th,\n  table.leave-guide td {\n    border: 1px solid #ccc;\n    padding: 8px;\n    text-align: left;\n  }\n</style>\n\n<table class=\"leave-guide\">\n  <thead>\n    <tr>\n      <th>Value</th>\n      <th>Meaning</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr class=\"row-2-hours\">\n      <td>0.25</td>\n      <td>2 Hours</td>\n    </tr>\n    <tr class=\"row-half-day\">\n      <td>0.5</td>\n      <td>Half Day</td>\n    </tr>\n    <tr class=\"row-1-full-day\">\n      <td>1.0</td>\n      <td>1 Full Day</td>\n    </tr>\n  </tbody>\n</table>\n"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-07-02 15:23:52.451348",
+ "modified_by": "Administrator",
+ "module": "leave management",
+ "name": "Employee Leave Status",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
