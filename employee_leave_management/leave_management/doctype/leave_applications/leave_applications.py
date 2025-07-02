@@ -31,16 +31,16 @@ class LeaveApplications(Document):
 			# Reset leave days for non-approved statuses
 			self.total_leave_days = 0
 
-	def validate(self):
+	#def validate(self):
 		# Existing date validation logic here...
 
 		# Sync status_update to core status field
-		if hasattr(self, "status_update"):
-			self.status = self.status_update
-
-		# Prevent approving draft documents
-		if self.docstatus == 0 and self.status == "Approved":
-			frappe.throw("Cannot approve leave application while in draft state")
+		#if hasattr(self, "status_update"):
+		#	self.status = self.status_update
+#
+		## Prevent approving draft documents
+		#if self.docstatus == 0 and self.status == "Approved":
+		#	frappe.throw("Cannot approve leave application while in draft state")
 
 		# Check email config for approved/rejected status
 		#if self.status in ["Approved", "Rejected"]:
@@ -52,14 +52,14 @@ class LeaveApplications(Document):
 		#			title="Email Configuration Required"
 		#		)
 
-	def on_submit(self):
-		if self.status != "Approved":
-			frappe.throw("Only Approved applications can be submitted")
-			
-		# Final validation before submission
-		self.check_email_configuration()
-		self.update_employee_leave_balance()
-		self.send_status_notification(self.status)
+	#def on_submit(self):
+	#	if self.status != "Approved":
+	#		frappe.throw("Only Approved applications can be submitted")
+	#		
+	#	# Final validation before submission
+	#	self.check_email_configuration()
+	#	self.update_employee_leave_balance()
+	#	self.send_status_notification(self.status)
 
 	#def check_email_configuration(self):
 	#	if not frappe.db.get_value("Email Account", {"default_outgoing": 1}):
@@ -79,13 +79,15 @@ class LeaveApplications(Document):
 	def update_employee_leave_balance(self):
 		"""Deduct leave days from employee's balance"""
 		employee = frappe.get_doc("Employee List", self.employee)
-		employee.available_leave_days -= self.total_leave_days
+		current_balance = employee.get("available_leave_days") or 0
+		employee.available_leave_days = current_balance - self.total_leave_days
 		employee.save()
 
 	def restore_employee_leave_balance(self):
 		"""Restore leave days when application is cancelled"""
 		employee = frappe.get_doc("Employee List", self.employee)
-		employee.available_leave_days += self.total_leave_days
+		current_balance = employee.get("available_leave_days", 0)
+		employee.available_leave_days = current_balance + self.total_leave_days
 		employee.save()
 
 	#def send_status_notification(self):
