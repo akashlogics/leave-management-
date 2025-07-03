@@ -9,7 +9,8 @@
   "email",
   "column_break_rqbp",
   "manager",
-  "joining_date"
+  "joining_date",
+  "status"
  ],
  "fields": [
   {
@@ -43,12 +44,18 @@
    "label": "Manager",
    "options": "Managers List",
    "reqd": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Active\nInactive"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-07-02 17:21:29.804676",
+ "modified": "2025-07-03 12:31:01.356569",
  "modified_by": "Administrator",
  "module": "leave management",
  "name": "Employee List",
@@ -64,6 +71,30 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Employee",
    "share": 1,
    "write": 1
   }

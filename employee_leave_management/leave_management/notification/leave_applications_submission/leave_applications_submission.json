@@ -1,0 +1,32 @@
+{
+ "attach_print": 0,
+ "channel": "Email",
+ "condition": "doc.workflow_state == \"Pending\"\n",
+ "creation": "2025-07-03 13:49:43.655736",
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Leave Applications",
+ "enabled": 0,
+ "event": "Save",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "<p>Dear Manager,</p>\n\n<p>A new Leave Application has been submitted by {{ doc.employee }}.</p>\n\n<p>Please review and take appropriate action.</p>\n\n<p>Regards,\nHR System</p>\n",
+ "message_type": "Markdown",
+ "modified": "2025-07-03 15:33:06.701947",
+ "modified_by": "Administrator",
+ "module": "leave management",
+ "name": "Leave applications submission",
+ "owner": "Administrator",
+ "recipients": [
+  {
+   "receiver_by_document_field": "owner",
+   "receiver_by_role": "Manager"
+  }
+ ],
+ "send_system_notification": 0,
+ "send_to_all_assignees": 0,
+ "sender": "manager1",
+ "sender_email": "akashmtp2004@gmail.com",
+ "subject": "New Leave Application Submitted"
+}

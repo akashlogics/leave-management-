@@ -11,12 +11,13 @@
   "time_leaves",
   "from_date",
   "to_date",
+  "month",
   "total_leave_days",
-  "reason",
   "column_break_nfzc",
   "approver",
   "email",
-  "status_update",
+  "reason",
+  "status",
   "amended_from"
  ],
  "fields": [
@@ -78,6 +79,17 @@
    "search_index": 1
   },
   {
+   "fieldname": "month",
+   "fieldtype": "Data",
+   "label": "Month",
+   "read_only": 1,
+   "in_list_view": 1,
+   "insert_after": "to_date",
+   "translatable": 0,
+   "reqd": 1,
+   "default": ""
+  },
+  {
    "fieldname": "total_leave_days",
    "fieldtype": "Float",
    "label": "Total Days",
@@ -92,17 +104,24 @@
    "options": "2 hours\nHalf day\n1 full day"
   },
   {
-   "fieldname": "status_update",
+   "fieldname": "status",
    "fieldtype": "Select",
-   "label": "Status Update",
-   "options": "Draft\nPending Approval\nApproved\nRejected"
+   "label": "Status",
+   "options": "Draft\nPending\nApproved\nRejected"
+  },
+  {
+   "fieldname": "month",
+   "fieldtype": "Data",
+   "label": "Month",
+   "read_only": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
+ "is_calendar_and_gantt": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-07-02 15:59:16.937158",
+ "modified": "2025-07-03 17:07:46.870620",
  "modified_by": "Administrator",
  "module": "leave management",
  "name": "Leave Applications",
@@ -110,6 +129,7 @@
  "owner": "Administrator",
  "permissions": [
   {
+   "cancel": 1,
    "create": 1,
    "delete": 1,
    "email": 1,
@@ -119,6 +139,7 @@
    "report": 1,
    "role": "System Manager",
    "share": 1,
+   "submit": 1,
    "write": 1
   },
   {
@@ -128,7 +149,29 @@
    "read": 1,
    "report": 1,
    "role": "Manager",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "permlevel": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manager",
    "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Employee",
+   "share": 1,
+   "submit": 1,
    "write": 1
   }
  ],
