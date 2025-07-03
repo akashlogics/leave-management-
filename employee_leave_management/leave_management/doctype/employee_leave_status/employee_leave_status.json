@@ -29,7 +29,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "default": "5",
    "fieldname": "leave_allocated",
    "fieldtype": "Int",
    "label": "Leave Allocated"
@@ -68,7 +67,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-07-03 16:46:42.253095",
+ "modified": "2025-07-03 17:55:28.892891",
  "modified_by": "Administrator",
  "module": "leave management",
  "name": "Employee Leave Status",
@@ -88,13 +87,15 @@
    "write": 1
   },
   {
+   "create": 1,
    "email": 1,
    "export": 1,
    "print": 1,
    "read": 1,
    "report": 1,
    "role": "Manager",
-   "share": 1
+   "share": 1,
+   "write": 1
   },
   {
    "email": 1,

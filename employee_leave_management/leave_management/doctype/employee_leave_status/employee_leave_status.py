@@ -17,15 +17,13 @@ class EmployeeLeaveStatus(Document):
 			FROM `tabLeave Applications`
 			WHERE employee = %s
 			  AND month = %s
-			  AND status = 'Approved'
 			  AND docstatus = 1
 		""", (self.employee, self.month))
-
+		
 		self.leaves_used = flt(leaves_used[0][0]) if leaves_used else 0
-
+	
 	def calculate_remaining_leaves(self):
-		"""Calculate remaining leaves from allocation and used"""
-		self.leaves_remaining = flt(self.leave_allocated) - flt(self.leaves_used)
+		self.leave_remaining = flt(self.leave_allocated) - flt(self.leaves_used)
 
 	def validate_allocation(self):
 		if not self.leave_allocated:

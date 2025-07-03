@@ -9,7 +9,6 @@ class LeaveApplications(Document):
 	def validate(self):
 		self.validate_leave_dates()
 		self.validate_leave_type()
-		self.month = getdate(self.from_date).strftime("%Y-%m")
 		self.total_leave_days = self.get_total_days()
 
 	def validate_leave_dates(self):
