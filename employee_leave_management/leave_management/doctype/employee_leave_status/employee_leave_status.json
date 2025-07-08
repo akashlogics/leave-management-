@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "LS.###",
+ "autoname": "format: {employee}-{month}",
  "creation": "2025-07-02 12:20:05.357121",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -21,8 +21,7 @@
    "in_list_view": 1,
    "label": "Employee",
    "options": "Employee List",
-   "reqd": 1,
-   "unique": 1
+   "reqd": 1
   },
   {
    "fieldname": "column_break_ewvn",
@@ -30,7 +29,7 @@
   },
   {
    "fieldname": "leave_allocated",
-   "fieldtype": "Int",
+   "fieldtype": "Float",
    "label": "Leave Allocated"
   },
   {
@@ -67,11 +66,11 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-07-03 17:55:28.892891",
+ "modified": "2025-07-04 13:16:05.488177",
  "modified_by": "Administrator",
  "module": "leave management",
  "name": "Employee Leave Status",
- "naming_rule": "Expression (old style)",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

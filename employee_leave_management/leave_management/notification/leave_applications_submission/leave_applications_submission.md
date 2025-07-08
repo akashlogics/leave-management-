@@ -1,4 +1,4 @@
-<p>Dear Manager,</p>
+<p>Dear {{ doc.approver }},</p>
 
 <p>A new Leave Application has been submitted by {{ doc.employee }}.</p>
 

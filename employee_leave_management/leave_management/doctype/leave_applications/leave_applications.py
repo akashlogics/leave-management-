@@ -10,6 +10,7 @@ class LeaveApplications(Document):
 		self.validate_leave_dates()
 		self.validate_leave_type()
 		self.total_leave_days = self.get_total_days()
+		self.on_leave_submit()
 
 	def validate_leave_dates(self):
 		if self.leave_type == "Others":
@@ -34,3 +35,19 @@ class LeaveApplications(Document):
 			}.get(self.time_leaves, 0)
 		return date_diff(self.to_date, self.from_date) + 1
 	
+	def update_leave_status_on_submit(doc, method):
+	   """Update employee's leave status when application is submitted"""
+		try:
+	       status = frappe.get_doc("Employee Leave Status", {
+	           "employee": doc.employee,
+	           "month": doc.month
+	       })
+	       
+	       # Deduct the leave days from the allocated balance
+	       status.leaves_used = flt(status.leaves_used) + flt(doc.total_leave_days)
+	       status.leave_remaining = flt(status.leave_allocated) - flt(status.leaves_used)
+	       status.save()
+	       frappe.db.commit()
+	       
+	   except frappe.DoesNotExistError:
+	       frappe.throw(f"No leave allocation found for {doc.employee} in {doc.month}")

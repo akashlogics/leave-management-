@@ -1,86 +1,40 @@
 {
- "add_total_row": 1,
+ "add_total_row": 0,
  "add_translate_data": 0,
  "columns": [
   {
-   "fieldname": "employee",
-   "fieldtype": "Link",
-   "label": "Employee ID",
-   "options": "Employee",
-   "width": 0
-  },
-  {
-   "fieldname": "employee_name",
-   "fieldtype": "Data",
-   "label": "Employee Name",
-   "width": 0
-  },
-  {
-   "fieldname": "leave_type",
-   "fieldtype": "Link",
-   "label": "Leave Type",
-   "options": "Leave Type",
-   "width": 0
-  },
-  {
-   "fieldname": "total_leaves",
-   "fieldtype": "Float",
-   "label": "Total Leaves",
-   "width": 0
-  },
-  {
-   "fieldname": "leaves_taken",
-   "fieldtype": "Float",
-   "label": "Leaves Taken",
-   "width": 0
-  },
-  {
-   "fieldname": "balance",
-   "fieldtype": "Float",
-   "label": "Balance",
+   "fieldname": "Empll",
+   "fieldtype": "Date",
+   "label": "ladc",
    "width": 0
   }
  ],
- "creation": "2025-06-30 11:15:50.776974",
+ "creation": "2025-07-04 15:47:43.174630",
  "disabled": 0,
  "docstatus": 0,
  "doctype": "Report",
- "filters": [
-  {
-   "fieldname": "employee",
-   "fieldtype": "Link",
-   "label": "Employee",
-   "options": "Employee"
-  },
-  {
-   "fieldname": "leave_type",
-   "fieldtype": "Link",
-   "label": "Leave Type",
-   "options": "Leave Type"
-  },
-  {
-   "fieldname": "period",
-   "fieldtype": "Date",
-   "label": "Period",
-   "options": "DateRange"
-  }
- ],
+ "filters": [],
  "idx": 0,
  "is_standard": "Yes",
- "json": "{}",
  "letterhead": null,
- "modified": "2025-06-30 11:19:40.000000",
+ "modified": "2025-07-04 15:53:25.218403",
  "modified_by": "Administrator",
  "module": "leave management",
- "name": "leave balance report",
+ "name": "Leave Balance Report",
  "owner": "Administrator",
  "prepared_report": 0,
- "ref_doctype": "leave balance",
- "report_name": "leave balance report",
- "report_type": "Report Builder",
+ "ref_doctype": "Employee Leave Status",
+ "report_name": "Leave Balance Report",
+ "report_type": "Script Report",
  "roles": [
   {
    "role": "System Manager"
+  },
+  {
+   "role": "Manager"
+  },
+  {
+   "role": "Employee"
   }
  ],
  "timeout": 0

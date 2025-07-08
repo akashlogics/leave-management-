@@ -11,14 +11,14 @@
   "time_leaves",
   "from_date",
   "to_date",
-  "month",
   "total_leave_days",
   "column_break_nfzc",
   "approver",
   "email",
   "reason",
   "status",
-  "amended_from"
+  "amended_from",
+  "month"
  ],
  "fields": [
   {
@@ -82,8 +82,7 @@
    "fieldname": "month",
    "fieldtype": "Select",
    "label": "Month",
-   "options": "January\nFebruary\nMarch\nApril\nMay\nJune\nJuly\nAugust\nSeptember\nOctober\nNovember\nDecember",
-   "reqd": 1
+   "options": "January\nFebruary\nMarch\nApril\nMay\nJune\nJuly\nAugust\nSeptember\nOctober\nNovember\nDecember"
   },
   {
    "fieldname": "total_leave_days",
@@ -109,8 +108,7 @@
    "fieldname": "month",
    "fieldtype": "Select",
    "label": "Month",
-   "options": "January\nFebruary\nMarch\nApril\nMay\nJune\nJuly\nAugust\nSeptember\nOctober\nNovember\nDecember",
-   "reqd": 1
+   "options": "January\nFebruary\nMarch\nApril\nMay\nJune\nJuly\nAugust\nSeptember\nOctober\nNovember\nDecember"
   }
  ],
  "grid_page_length": 50,
@@ -118,7 +116,7 @@
  "is_calendar_and_gantt": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-07-03 18:00:11.690368",
+ "modified": "2025-07-07 11:24:34.193236",
  "modified_by": "Administrator",
  "module": "leave management",
  "name": "Leave Applications",
@@ -141,6 +139,7 @@
   },
   {
    "cancel": 1,
+   "delete": 1,
    "email": 1,
    "export": 1,
    "print": 1,
@@ -153,6 +152,7 @@
   },
   {
    "create": 1,
+   "delete": 1,
    "email": 1,
    "export": 1,
    "print": 1,

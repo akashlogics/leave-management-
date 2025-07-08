@@ -129,16 +129,12 @@ app_license = "mit"
 # 	"Event": "frappe.desk.doctype.event.event.has_permission",
 # }
 
-# Document Events
-# ---------------
-# doc_events = {
-# 	"Leave Application": {
-# 		"before_submit": "employee_leave_management.leave_management.doctype.leave_application.leave_application.validate_leave_balance",
-# 		"on_update": "employee_leave_management.leave_management.doctype.leave_application.leave_application.update_leave_balance_after_approval",
-# 		"before_insert": "employee_leave_management.hr_managers.doctype.manager1.manager1.validate_approver",
-# 		"on_cancel": "employee_leave_management.leave_management.doctype.leave_application.leave_application.restore_leave_balance"
-# 	}
-# }
+#doc_events = {
+#    "Leave Applications": {
+#        "on_submit": "employee_leave_management.leave_management.doctype.leave_applications.leave_applications.update_leave_status"
+#    }
+#}
+
 
 # Scheduled Tasks
 # ---------------
@@ -281,4 +277,6 @@ app_license = "mit"
 #         ]
 #     }
 # ]
-
+fixtures = [
+    "leave application status"
+]
