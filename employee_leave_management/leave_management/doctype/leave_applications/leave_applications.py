@@ -10,8 +10,8 @@ class LeaveApplications(Document):
 		self.validate_leave_dates()
 		self.validate_leave_type()
 		self.total_leave_days = self.get_total_days()
-		self.on_leave_submit()
-
+		self.before_submit()
+		
 	def validate_leave_dates(self):
 		if self.leave_type == "Others":
 			if self.from_date != self.to_date:
@@ -36,18 +36,38 @@ class LeaveApplications(Document):
 		return date_diff(self.to_date, self.from_date) + 1
 	
 	def update_leave_status_on_submit(doc, method):
-	   """Update employee's leave status when application is submitted"""
-		try:
-	       status = frappe.get_doc("Employee Leave Status", {
-	           "employee": doc.employee,
-	           "month": doc.month
-	       })
-	       
-	       # Deduct the leave days from the allocated balance
-	       status.leaves_used = flt(status.leaves_used) + flt(doc.total_leave_days)
-	       status.leave_remaining = flt(status.leave_allocated) - flt(status.leaves_used)
-	       status.save()
-	       frappe.db.commit()
-	       
-	   except frappe.DoesNotExistError:
-	       frappe.throw(f"No leave allocation found for {doc.employee} in {doc.month}")
+		"""Update the leave status for the employee when a leave application is submitted."""
+		if doc.status == "Approved":
+			doc.update_leave_status()
+		else:
+			frappe.throw("Leave application must be approved to update leave status.")
+		# Get allocated leaves from Leave Allocation document
+		allocated_leaves = frappe.get_value("Leave Allocation",
+			{
+				"employee_id": doc.employee,
+				"month": doc.month,
+				"docstatus": 1
+			},
+			"leave_allowed"
+		)
+		
+		if not allocated_leaves:
+			frappe.throw(f"No valid leave allocation found for {doc.employee} (Month: {doc.month})")
+
+		frappe.db.set_value("Employee Leave Status",
+			{
+				"employee": doc.employee,
+				"month": doc.month
+			},
+			{
+				"leaves_used": doc.total_leave_days,
+				"leave_remaining": allocated_leaves - doc.total_leave_days,
+				"leave_allocated": allocated_leaves
+			}
+		)
+
+	def before_submit(self):
+		user_roles = frappe.get_roles()
+		if "Employee" in user_roles:
+			if self.status in ["Approved", "Pending", "Pending Approval"]:
+				frappe.throw(f"Employees cannot submit applications with status '{self.status}'. Status must be set through approval workflow")

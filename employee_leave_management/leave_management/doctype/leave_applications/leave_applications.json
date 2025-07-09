@@ -99,6 +99,7 @@
    "options": "2 hours\nHalf day\n1 full day"
   },
   {
+   "default": "Draft",
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
@@ -116,7 +117,7 @@
  "is_calendar_and_gantt": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-07-07 11:24:34.193236",
+ "modified": "2025-07-09 16:52:59.296772",
  "modified_by": "Administrator",
  "module": "leave management",
  "name": "Leave Applications",

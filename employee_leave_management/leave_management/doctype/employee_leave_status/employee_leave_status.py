@@ -10,6 +10,7 @@ class EmployeeLeaveStatus(Document):
 		self.calculate_leave_usage()
 		self.calculate_remaining_leaves()
 		self.validate_allocation()
+		self.leave_allocated()
 
 	def calculate_leave_usage(self):
 		leaves_used = frappe.db.sql("""
@@ -30,3 +31,16 @@ class EmployeeLeaveStatus(Document):
 			frappe.throw("Leave Allocation is required")
 		if flt(self.leave_allocated) < 0:
 			frappe.throw("Leave Allocation cannot be negative")
+
+	def leave_allocated(self):
+		if not self.leave_allocated:
+			allocation = frappe.db.get_value("Leave Allocation", {
+				"employee": self.employee,
+				"month": self.month
+			}, "leave_allocated")
+			
+			if allocation:
+				self.leave_allocated = flt(allocation)
+			else:
+				self.leave_allocated = 0
+		return self.leave_allocated

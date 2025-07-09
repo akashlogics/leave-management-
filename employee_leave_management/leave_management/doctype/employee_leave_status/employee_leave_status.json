@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format: {employee}-{month}",
+ "autoname": "format: {employee}-{month}-{leave_remaining}",
  "creation": "2025-07-02 12:20:05.357121",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -20,8 +20,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Employee",
-   "options": "Employee List",
-   "reqd": 1
+   "options": "Employee List"
   },
   {
    "fieldname": "column_break_ewvn",
@@ -66,7 +65,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-07-04 13:16:05.488177",
+ "modified": "2025-07-09 17:20:38.330844",
  "modified_by": "Administrator",
  "module": "leave management",
  "name": "Employee Leave Status",
